@@ -6,7 +6,7 @@ class Downsampler(nn.Module):
     '''
         http://www.realitypixels.com/turk/computergraphics/ResamplingFilters.pdf
     '''
-    def __init__(self, n_planes, factor, kernel_type, phase=0, kernel_width=None, support=None, sigma=None, preserve_size=False):
+    def __init__(self, n_planes, factor, kernel_type='lanczos2', phase=0.5, kernel_width=None, support=None, sigma=None, preserve_size=True):
         super(Downsampler, self).__init__()
         
         assert phase in [0, 0.5], 'phase should be 0 or 0.5'
