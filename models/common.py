@@ -80,6 +80,8 @@ def act(act_fun = 'LeakyReLU'):
     if isinstance(act_fun, str):
         if act_fun == 'LeakyReLU':
             return nn.LeakyReLU(0.2, inplace=True)
+        elif act_fun == 'ReLU':
+            return nn.ReLU(inplace=True)
         elif act_fun == 'Swish':
             return Swish()
         elif act_fun == 'ELU':
