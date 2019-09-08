@@ -4,11 +4,26 @@ import torchvision
 import sys
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageSequence
 import PIL
 import numpy as np
 
 import matplotlib.pyplot as plt
+
+def read_gif(img_path):
+    imgs_pil = []
+    imgs_np = []
+
+    im = Image.open(img_path)
+    for frame in ImageSequence.Iterator(im):
+        img_pil = crop_image(frame)
+        img_pil = img_pil.convert('RGB')
+        img_np = pil_to_np(img_pil)
+        imgs_pil.append(img_pil)        
+        imgs_np.append(img_np)
+
+    return imgs_pil, imgs_np
+
 
 def crop_image(img, d=32):
     '''Make dimensions divisible by `d`'''

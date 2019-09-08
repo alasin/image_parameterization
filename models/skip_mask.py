@@ -33,7 +33,7 @@ class SkipMaskGen(nn.Module):
 
         input_depth = num_input_channels
 
-        self.act - act(act_fun)
+        self.act = act(act_fun)
 
         self.conv1_1 = conv(input_depth, num_channels_down[0], filter_size_down[0], 2, bias=need_bias, pad=pad, downsample_mode=downsample_mode[0])
         self.bn1_1 = bn(num_channels_down[0])
